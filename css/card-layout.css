@@ -1,0 +1,180 @@
+.cards-container {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 1px;
+    top: 50px;
+    padding-top: 100px;
+}
+.picked-cards-container {
+    display: flex !important;
+    overflow-x: auto !important;
+}
+.card {
+    display: block;
+    width: 200px;
+    height: 310px;
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
+    transform-origin: bottom center;
+    transition: transform 0.7s ease-in;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    transition: transform 0.7s ease-in-out, z-index 0s linear 0.7s; /* Delay z-index transition to after the card moves */
+    z-index: 1; /* Default z-index */
+    animation-timing-function: ease-in;
+}
+
+    /* Back of card */
+    .card .back {
+        width: 100%;
+        height: 100%;
+        background-image: url('../wp-content/uploads/2024/02/osho-zen-card-back.jpg');
+        background-size: cover;
+        border-radius: 20px;
+    }
+
+    /* Front of card (icon) - initially hidden */
+    .card .front {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+    }
+
+    .card:hover .front {
+        display: flex;
+    }
+
+    /* Hover effect to lift the card */
+    .card:hover {
+        transform: translateY(-20px);
+        z-index: 100; /* Bring to the top */
+        transition: transform 0.7s ease-in-out, z-index 0s; /* Remove delay for z-index transition */
+    }
+
+/* Fan out animations */
+@keyframes card1_ani {
+
+
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes card2_ani {
+ 
+
+    100% {
+        transform: rotate(-36deg);
+    }
+}
+
+@keyframes card3_ani {
+
+    100% {
+        transform: rotate(-27deg);
+    }
+}
+
+@keyframes card4_ani {
+
+
+    100% {
+        transform: rotate(-18deg);
+    }
+}
+
+@keyframes card5_ani {
+
+
+    100% {
+        transform: rotate(-9deg);
+    }
+}
+
+@keyframes card6_ani {
+
+    100% {
+        transform: rotate(9deg);
+    }
+}
+
+@keyframes card7_ani {
+
+
+    100% {
+        transform: rotate(18deg);
+    }
+}
+
+@keyframes card8_ani {
+
+
+    100% {
+        transform: rotate(27deg);
+    }
+}
+
+@keyframes card9_ani {
+   
+
+    100% {
+        transform: rotate(36deg);
+    }
+}
+
+@keyframes card10_ani {
+
+
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+/* Assign animations to cards */
+.card:nth-child(1) {
+    animation-name: card1_ani;
+}
+
+.card:nth-child(2) {
+    animation-name: card2_ani;
+}
+
+.card:nth-child(3) {
+    animation-name: card3_ani;
+}
+
+.card:nth-child(4) {
+    animation-name: card4_ani;
+}
+
+.card:nth-child(5) {
+    animation-name: card5_ani;
+}
+
+.card:nth-child(6) {
+    animation-name: card6_ani;
+}
+
+.card:nth-child(7) {
+    animation-name: card7_ani;
+}
+
+.card:nth-child(8) {
+    animation-name: card8_ani;
+}
+
+.card:nth-child(9) {
+    animation-name: card9_ani;
+}
+
+.card:nth-child(10) {
+    animation-name: card10_ani;
+}

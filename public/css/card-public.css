@@ -1,0 +1,28 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .card {
+
+            margin: 10px;
+            flex: 0 1 calc(25% - 20px); 
+        }
+        @media (max-width: 1200px) {
+            .card {
+                flex: 0 1 calc(40% - 20px); 
+            }
+        }
+        @media (max-width: 800px) {
+            .card {
+                flex: 0 1 calc(70% - 20px); 
+            }
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+        }
+		
