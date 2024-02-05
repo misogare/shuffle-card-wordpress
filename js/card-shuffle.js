@@ -15,12 +15,26 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('#shuffle-button').on('click', function() {
+    $('#shuffle-button').on('click', function () {
+        var pickedCardIds = $('.picked-card').map(function () {
+            return $(this).data('id');
+        }).get(); // This will create an array of picked card IDs
+
+        console.log("Picked Card IDs: ", pickedCardIds); // Log the picked card IDs
+
         $.ajax({
             url: card_shuffle.ajax_url,
             type: 'post',
-            data: { action: 'card_shuffle' },
-            success: function(response) {
+            data: {
+                action: 'card_shuffle',
+                picked_card_ids: pickedCardIds // Send picked card IDs with the request
+            },
+            beforeSend: function () {
+                console.log("Sending request with data: ", pickedCardIds);
+            },
+            success: function (response) {
+                console.log("Response: ", response); // Log the response
+
                 // Update the dialog with the response and open it
                 dialog.html(response).dialog('open');
 				var btn = $('<button id="email-button">Send to Email</button>');
@@ -52,6 +66,9 @@ jQuery(document).ready(function($) {
 			});
 		});
 
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log("AJAX error: ", textStatus, errorThrown); // Log AJAX error details
             }
         });
     });

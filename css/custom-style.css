@@ -1,0 +1,24 @@
+.picked-cards-container {
+    display: flex !important;
+    overflow-x: auto !important;
+}
+
+.picked-card {
+    position: relative; /* Add this line */
+}
+
+.remove-card {
+    position: absolute; /* Add this line */
+    top: 0; /* Add this line */
+    right: 0; /* Add this line */
+    background: none;
+    border: none;
+    padding: 0;
+    /* Add the following lines to create an "X" icon */
+    content: "X";
+    color: #000;
+    font-weight: bold;
+}
+.picked-card .back {
+    display: none;
+}

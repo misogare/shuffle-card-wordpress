@@ -69,6 +69,78 @@ function activate_card() {
         array('name' => 'Card 6', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-08-Letting-Go.jpg', 'description' => 'Description 6'),
         array('name' => 'Card 7', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-09-Laziness.jpg', 'description' => 'Description 7'),
         array('name' => 'Card 8', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-10-Harmony.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 9', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-11-Understanding.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 10', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-12-Trust.jpg', 'description' => 'Description 8'),
+          array('name' => 'Card 11', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-13-Receptivity.jpg', 'description' => 'Description 1'),
+        array('name' => 'Card 12', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-01-Consciousness.jpg', 'description' => 'Description 2'),
+        array('name' => 'Card 13', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-02-Schizophrenia.jpg', 'description' => 'Description 3'),
+        array('name' => 'Card 14', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-03-Ice-Olation.jpg', 'description' => 'Description 4'),
+        array('name' => 'Card 15', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-04-Postponement.jpg', 'description' => 'Description 5'),
+        array('name' => 'Card 16', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-05-Comparison.jpg', 'description' => 'Description 6'),
+        array('name' => 'Card 17', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-06-The-Burden.jpg', 'description' => 'Description 7'),
+        array('name' => 'Card 18', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-07-Politics.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 19', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-08-Guilt.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 20', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-09-Sorrow.jpg', 'description' => 'Description 8'),
+          array('name' => 'Card 21', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-10-Rebirth.jpg', 'description' => 'Description 1'),
+        array('name' => 'Card 22', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-11-Mind.jpg', 'description' => 'Description 2'),
+        array('name' => 'Card 23', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-12-Fighting.jpg', 'description' => 'Description 3'),
+        array('name' => 'Card 24', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-13-Morality.jpg', 'description' => 'Description 4'),
+        array('name' => 'Card 25', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/2C-14-Control.jpg', 'description' => 'Description 5'),
+        array('name' => 'Card 26', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-01-The-Source.jpg', 'description' => 'Description 6'),
+        array('name' => 'Card 27', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-02-Possibilities.jpg', 'description' => 'Description 7'),
+        array('name' => 'Card 28', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-03-Experiencing.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 29', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-04-Participation.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 30', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-05-Totality.jpg', 'description' => 'Description 8'),
+          array('name' => 'Card 31', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-06-Success.jpg', 'description' => 'Description 1'),
+        array('name' => 'Card 32', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-07-Stress.jpg', 'description' => 'Description 2'),
+        array('name' => 'Card 33', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-08-Traveling.jpg', 'description' => 'Description 3'),
+        array('name' => 'Card 34', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-09-Exhaustion.jpg', 'description' => 'Description 4'),
+        array('name' => 'Card 35', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-10-Supression.jpg', 'description' => 'Description 5'),
+        array('name' => 'Card 36', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-11-Playfulness.jpg', 'description' => 'Description 6'),
+        array('name' => 'Card 37', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-12-Intensity.jpg', 'description' => 'Description 7'),
+        array('name' => 'Card 38', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-13-Sharing.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 39', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/3F-14-The-Creator.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 40', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-01-Maturity.jpg', 'description' => 'Description 8'),
+          array('name' => 'Card 41', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-02-Moment-To-Moment.jpg', 'description' => 'Description 1'),
+        array('name' => 'Card 42', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-03-Guidance.jpg', 'description' => 'Description 2'),
+        array('name' => 'Card 43', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-04-The-Miser.jpg', 'description' => 'Description 3'),
+        array('name' => 'Card 44', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-05-The-Outsider.jpg', 'description' => 'Description 4'),
+        array('name' => 'Card 45', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-06-Compromise.jpg', 'description' => 'Description 5'),
+        array('name' => 'Card 46', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-07-Patience.jpg', 'description' => 'Description 6'),
+        array('name' => 'Card 47', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-08-Ordinariness.jpg', 'description' => 'Description 7'),
+        array('name' => 'Card 48', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-09-Ripeness.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 49', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/4R-10-We-Are-The-World.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 50', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-00-The-Fool.jpg', 'description' => 'Description 8'),
+          array('name' => 'Card 51', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-01-Existence.jpg', 'description' => 'Description 1'),
+        array('name' => 'Card 52', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-02-Inner-Voice.jpg', 'description' => 'Description 2'),
+        array('name' => 'Card 53', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-03-Creativity.jpg', 'description' => 'Description 3'),
+        array('name' => 'Card 54', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-04-The-Rebel.jpg', 'description' => 'Description 4'),
+        array('name' => 'Card 55', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-05-No-Thingness.jpg', 'description' => 'Description 5'),
+        array('name' => 'Card 56', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-07-Awareness.jpg', 'description' => 'Description 6'),
+        array('name' => 'Card 57', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-08-Courage.jpg', 'description' => 'Description 7'),
+        array('name' => 'Card 58', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-09-Aloneness.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 59', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-10-Change.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 60', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-11-Breakthrough.jpg', 'description' => 'Description 8'),
+          array('name' => 'Card 61', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-12-New-Vision.jpg', 'description' => 'Description 1'),
+        array('name' => 'Card 62', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-13-Transformation.jpg', 'description' => 'Description 2'),
+        array('name' => 'Card 63', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-14-Integration.jpg', 'description' => 'Description 3'),
+        array('name' => 'Card 64', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-15-Conditioning.jpg', 'description' => 'Description 4'),
+        array('name' => 'Card 65', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-16-Thunderbolt.jpg', 'description' => 'Description 5'),
+        array('name' => 'Card 66', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-17-Silence.jpg', 'description' => 'Description 6'),
+        array('name' => 'Card 67', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-18-Past-Lives.jpg', 'description' => 'Description 7'),
+        array('name' => 'Card 68', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-19-Innocence.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 69', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-21-Completion.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 70', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-22-The-Master.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 71', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-01-Going-With-The-Flow.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 72', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-02-Friendliness.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 73', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-03-Celebration.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 74', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-04-Turning-In.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 75', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-05-Clinging-To-The-Past.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 76', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-06-The-Dream.jpg', 'description' => 'Description 8'),
+        array('name' => 'Card 77', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/1W-14-Healing.jpg', 'description' => 'Description 8'),
+       array('name' => 'Card 78', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-06-The-Lovers.jpg', 'description' => 'Description 8'),
+       array('name' => 'Card 79', 'icon' => 'http://localhost/wordpress/wp-content/uploads/2024/02/0M-20-Beyond-Illusion.jpg', 'description' => 'Description 8'),
+
         // Add more cards as needed
     );
 
@@ -144,54 +216,64 @@ add_shortcode('display_cards', 'display_cards');
 
 function picked_card() {
     if (!defined('DOING_AJAX') || !DOING_AJAX) {
-                error_log('Not doing AJAX');
-
+        error_log('Not doing AJAX');
         return;
     }
     global $wpdb;
     $table_name = $wpdb->prefix . 'cards';
-    if (!isset($_POST['card_id'])) {
-                error_log('No card ID in POST data');
 
-        echo 'No card picked yet.';
-        wp_die();
+    // Initialize an empty array to hold the cards
+    $cards = [];
+
+    if (isset($_POST['pick-seven-cards-button']) && $_POST['pick-seven-cards-button'] == true) {
+        if (!is_user_logged_in()) {
+            echo 'You must be logged in to pick 7 cards.';
+            wp_die();
+        }
+        // Fetch 7 random cards
+        $cards = $wpdb->get_results("SELECT * FROM $table_name ORDER BY RAND() LIMIT 7");
+    } else {
+        if (!isset($_POST['card_id'])) {
+            error_log('No card ID in POST data');
+            echo 'No card picked yet.';
+            wp_die();
+        }
+        $card_id = intval($_POST['card_id']);
+        // Fetch the specific card by ID
+        $card = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $card_id));
+        if ($card) {
+            $cards[] = $card; // Add the single card to the cards array for consistent processing
+        }
     }
-    $card_id = intval($_POST['card_id']);
-        error_log('Card ID: ' . $card_id); // Log the card ID
-
-    $card = $wpdb->get_row("SELECT * FROM $table_name WHERE id = $card_id");
 
     ob_start();
 
-    if ($card) {
-                error_log('Card found: ' . print_r($card, true)); // Log the card data
-
-        echo '<div class="picked-card">';
-        echo '<div class="front">';
-        echo '<img src="' . esc_url($card->icon) . '" alt="' . esc_attr($card->name) . '">';
-        echo '</div>';
-        echo '<div class="back">';
-        echo '<img src="../wp-content/uploads/2024/02/osho-zen-card-back.jpg" alt="Back of card">';
-        echo '</div>';
-        echo '<button class="remove-card">Remove</button>'; // Add this line
-
-        echo '</div>';
+    if (!empty($cards)) {
+        foreach ($cards as $card) {
+            echo '<div class="picked-card" data-id="' . esc_attr($card->id) . '">';
+            echo '<button class="remove-card">X</button>';
+            echo '<div class="front">';
+            echo '<img src="' . esc_url($card->icon) . '" alt="' . esc_attr($card->name) . '">';
+            echo '</div>';
+            echo '<div class="back">';
+            echo '<img src="../wp-content/uploads/2024/02/osho-zen-card-back.jpg" alt="Back of card">';
+            echo '</div>';
+            echo '</div>';
+        }
     } else {
-                error_log('No card found with ID: ' . $card_id); // Log if no card found
-
+        error_log('No card found');
         echo 'No card found.';
     }
 
     echo ob_get_clean();
-    wp_die(); // This is required to terminate immediately and return a proper response
+    wp_die();
 }
+
+
 add_action('wp_ajax_picked_card', 'picked_card');
 add_action('wp_ajax_nopriv_picked_card', 'picked_card');
 
 
-// In class-card.php
-
-// In class-card.php
 
 function enqueue_scripts() {
     wp_enqueue_script('jquery');
@@ -199,7 +281,8 @@ function enqueue_scripts() {
         wp_enqueue_script('ajax-script', plugin_dir_url(__FILE__). '/js/ajax.js', array('jquery'), '1.0', true);
 
     wp_enqueue_script('card-shuffle', plugin_dir_url(__FILE__) . 'js/card-shuffle.js', array('jquery', 'jquery-ui-dialog'), '1.0', true); // Add 'jquery-ui-dialog' to the dependencies array
-        wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+        wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),        'is_user_logged_in' => is_user_logged_in() ? 'yes' : 'no'
+ ) );
 
     // Pass the AJAX URL to script.js
     wp_localize_script('card-shuffle', 'card_shuffle', array('ajax_url' => admin_url('admin-ajax.php')));
@@ -209,15 +292,35 @@ add_action('wp_enqueue_scripts', 'enqueue_scripts');
 
 
 // Create an AJAX endpoint for shuffling cards
-add_action('wp_ajax_card_shuffle', 'card_shuffle_callback');
+add_action( 'wp_ajax_card_shuffle', 'card_shuffle_callback' );
+add_action( 'wp_ajax_nopriv_card_shuffle', 'card_shuffle_callback' );
 
-// In class-card.php
+
+
 
 function card_shuffle_callback() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'cards';
 
-    $cards = $wpdb->get_results("SELECT * FROM $table_name ORDER BY RAND() LIMIT 3");
+    // Logging the POST data
+    error_log('POST data: ' . print_r($_POST, true));
+
+    $picked_card_ids = isset($_POST['picked_card_ids']) ? array_map('intval', $_POST['picked_card_ids']) : array();
+
+    // Log the picked card IDs
+    error_log('Picked card IDs: ' . implode(', ', $picked_card_ids));
+
+    if (!empty($picked_card_ids)) {
+        $ids_format = implode(',', array_fill(0, count($picked_card_ids), '%d'));
+        $query = $wpdb->prepare("SELECT * FROM $table_name WHERE id IN ($ids_format) ORDER BY RAND() LIMIT 3", $picked_card_ids);
+        $cards = $wpdb->get_results($query);
+
+        // Log the query to check if it's correct
+        error_log('SQL Query: ' . $wpdb->last_query);
+    } else {
+        $cards = array(); // If no cards are picked, set to an empty array
+        error_log('No picked card IDs provided.');
+    }
 
     if ($cards) {
         foreach ($cards as $card) {
@@ -282,6 +385,10 @@ function enqueue_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_styles');
+function add_custom_style() {
+    wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'css/custom-style.css');
+}
+add_action('wp_enqueue_scripts', 'add_custom_style');
 
 function run_card() {
 
