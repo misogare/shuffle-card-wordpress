@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
-    var numCards = 79; // The total number of cards
+    var numcards = 79; // The total number of cards
     var totalAngle = 360; // The total angle in degrees
-    var angleStep = totalAngle / numCards; // The angle step for each card
+    var angleStep = totalAngle / numcards; // The angle step for each card
 
     $('.card').each(function (index) {
         var rotationAngle = -180 + index * angleStep; // Calculate the rotation angle for this card
@@ -10,16 +10,16 @@ jQuery(document).ready(function ($) {
         console.log('Card ' + (index + 1) + ': rotation angle = ' + rotationAngle); // Log the rotation angle
     });
 
-    var clickedCards = {}; // Object to keep track of clicked cards
+    var clickedcards = {}; // Object to keep track of clicked cards
 
     $('.card').click(function () {
         var card_id = $(this).data('id');
         console.log('Card ID: ' + card_id); // Log the card ID
 
         // If the card has not been clicked before
-        if (!clickedCards[card_id]) {
-            // Add the card_id to clickedCards
-            clickedCards[card_id] = true;
+        if (!clickedcards[card_id]) {
+            // Add the card_id to clickedcards
+            clickedcards[card_id] = true;
 
             $.ajax({
                 url: ajax_object.ajax_url,
@@ -73,15 +73,23 @@ jQuery(document).ready(function ($) {
         });
     } else {
         $('#pick-seven-cards-button').click(function () {
+            var num_cards = 7; // default number of cards
+            if (ajax_object.is_user_logged_in === 'yes' && ajax_object.is_admin === 'yes') {
+                num_cards = parseInt($('#num-cards-input').val(), 10) || 7; // Ensure an integer value is sent
+                console.log('Number of cards to pick: ' + num_cards); // Log the number of cards
+            }
+            console.log('Sending AJAX request with num_cards: ' + num_cards); // Log the number of cards
+
             $.ajax({
                 url: ajax_object.ajax_url,
                 type: 'POST',
                 data: {
                     action: 'picked_card',
-                    'pick-seven-cards-button': true // Send 'pick-seven-cards-button': true instead of shuffle_pick_seven: true
+                    'pick-seven-cards-button': true,
+                    'num_cards': num_cards
                 },
                 success: function (response) {
-                    // Assuming the response contains the HTML for the 7 cards
+                    console.log('AJAX success: ' + response); // Log the AJAX success response
                     $('.picked-cards-container').html(response); // Replace the content with the new cards
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -98,8 +106,10 @@ jQuery(document).ready(function ($) {
     // Delegate the click event handler to the remove buttons
     $('.picked-cards-container').on('click', '.remove-card', function () {
         var card_id = $(this).parent().data('id'); // Get the card ID
-        delete clickedCards[card_id]; // Remove the card from clickedCards
+        delete clickedcards[card_id]; // Remove the card from clickedcards
         $(this).parent().remove(); // Remove the card from the DOM
+        delete clickedcards[card_id]; // Also remove the card from clickedcards
         console.log('Card ' + card_id + ' has been removed.'); // Log that the card has been removed
     });
+
 });

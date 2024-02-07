@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     // Create a dialog
-    var dialog = $('<div id="dialog" title="Shuffled Cards"></div>').dialog({
+    var dialog = $('<div id="dialog" title="Shuffled cards"></div>').dialog({
         autoOpen: false,
         modal: true,
         width: 'auto',

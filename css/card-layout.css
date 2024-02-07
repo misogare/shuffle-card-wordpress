@@ -1,7 +1,25 @@
 
+.card-set-container {
+    position: relative;
+}
+
+#show-cards {
+    position: absolute;
+    z-index: 1000;
+    top: 300%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
+    width: 95px; /* Adjust to desired width */
+    height: 30px; /* Adjust to desired height */
+    /* Add any other styles you want for your button */
+}
+
+
 .cards-container {
     position: relative;
-    display: block;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     margin: 0 auto;
     width: 1px;
     top: 50px;
@@ -12,6 +30,7 @@
     display: block;
     width: 200px;
     height: 310px;
+    
     position: absolute;
     border-radius: 20px;
     box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
