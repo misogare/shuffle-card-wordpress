@@ -9,6 +9,19 @@ jQuery(document).ready(function ($) {
         $(this).css('--rotate', rotationAngle + 'deg'); // Set the rotation angle as a CSS variable
         console.log('Card ' + (index + 1) + ': rotation angle = ' + rotationAngle); // Log the rotation angle
     });
+    function rotateCards(setIndex, direction) {
+        var cardsInSet = $('.card-set').eq(setIndex).find('.card1');
+        var angleIncrement = direction === 'next' ? -angleStep : angleStep;
+
+        cardsInSet.each(function () {
+            var currentRotation = parseInt($(this).css('--rotate'), 10);
+            var newRotation = currentRotation + angleIncrement;
+            $(this).css('--rotate', newRotation + 'deg');
+        });
+    }
+
+    // Event listener for "Next" button
+
 
     var clickedcards = {}; // Object to keep track of clicked cards
 

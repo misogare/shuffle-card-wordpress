@@ -3,16 +3,6 @@
     position: relative;
 }
 
-#show-cards {
-    position: absolute;
-    z-index: 1000;
-    top: 300%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
-    width: 95px; /* Adjust to desired width */
-    height: 30px; /* Adjust to desired height */
-    /* Add any other styles you want for your button */
-}
 
 
 .cards-container {
@@ -35,10 +25,9 @@
     border-radius: 20px;
     box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.3);
     transform-origin: bottom center;
-    transition: transform 0.7s ease-in;
-    animation-duration: 0.7s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
-    transition: transform 0.7s ease-in-out, z-index 0s linear 0.7s; /* Delay z-index transition to after the card moves */
+    transition: transform 0.3s ease-in-out, z-index 0s linear 0.7s; /* Delay z-index transition to after the card moves */
     z-index: 1; /* Default z-index */
     animation-timing-function: ease-in;
 }
@@ -47,7 +36,6 @@
     .card .back {
         width: 100%;
         height: 100%;
-        background-image: url('../wp-content/uploads/2024/02/osho-zen-card-back.jpg');
         background-size: cover;
         border-radius: 20px;
     }
@@ -86,4 +74,56 @@
 /* Assign the animation to all cards */
 .card {
     animation-name: card_ani;
+}
+#show-cards {
+    position: absolute;
+    z-index: 2;
+    top: 300%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
+    width: 95px; /* Adjust to desired width */
+    height: 30px; /* Adjust to desired height */
+    /* Add any other styles you want for your button */
+}
+
+.prev-button1 {
+    position: absolute;
+    z-index: 2;
+    top: 600%; /* Center vertically */
+    left: 20%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
+    width: 95px; /* Adjust to desired width */
+    height: 30px; /* Adjust to desired height */
+}
+
+.next-button1 {
+    position: absolute;
+    z-index: 2;
+    top: 600%; /* Center vertically */
+    left: 60%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
+    width: 95px; /* Adjust to desired width */
+    height: 30px; /* Adjust to desired height */
+}
+.card {
+    /* Other styles */
+    width: 200px;
+    height: 310px;
+}
+
+/* Adjust the size for smaller screens */
+@media (max-width: 600px) {
+    .card {
+        width: 100px;
+        height: 220px;
+        border-radius: 5px;
+    }
+}
+
+/* Adjust the size for even smaller screens */
+@media (max-width: 400px) {
+    .card {
+        width: 100px;
+        height: 155px;
+    }
 }

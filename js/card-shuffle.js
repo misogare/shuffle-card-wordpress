@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
         autoOpen: false,
         modal: true,
         width: 'auto',
-        height: 'auto',
+        height: '500',
         show: {
             effect: "blind",
             duration: 1000

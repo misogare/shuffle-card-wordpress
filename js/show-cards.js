@@ -1,21 +1,68 @@
 jQuery(document).ready(function ($) {
-    $('.card1').click(function () {
-        var clickedIndex = parseInt($(this).css('--i'), 10); // Get the current index
-        $('.card1').each(function () {
-            var currentIndex = parseInt($(this).css('--i'), 10);
-            if (currentIndex > clickedIndex) {
-                $(this).css('--i', currentIndex - 1);
+
+    // Function to initialize the carousel for each set
+    function initCarousel() {
+        $('.card-set').each(function () {
+            var $set = $(this);
+            var $cards = $set.find('.card1');
+            var currentIndex = 0; // Start with the first card
+
+            // Adjust visibility based on screen size
+            adjustCardVisibility($cards, currentIndex);
+
+            // Next button click handler
+            $set.siblings('.card-navigation-buttons').find('.next-button').click(function () {
+                if (currentIndex < $cards.length - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                adjustCardVisibility($cards, currentIndex);
+            });
+
+            // Prev button click handler
+            $set.siblings('.card-navigation-buttons').find('.prev-button').click(function () {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = $cards.length - 1;
+                }
+                adjustCardVisibility($cards, currentIndex);
+            });
+        });
+    }
+    function adjustCardVisibility($cards, currentIndex) {
+        if ($(window).width() > 600) {
+            // On larger screens, show all cards
+            $cards.show();
+        } else {
+            // On smaller screens, show only the current card
+            $cards.hide().eq(currentIndex).show();
+        }
+    }
+    function handleCardClick() {
+        $('.card1').off('click').on('click', function () {
+            if ($(window).width() <= 600) {
+                var $card = $(this);
+                var $front = $card.find('.front1');
+                var $back = $card.find('.back1');
+
+                console.log('Toggling card face...');
+                // Toggle visibility of front and back on small screens
+                $front.toggle();
+                $back.toggle();
+            } else {
+                var clickedIndex = parseInt($(this).css('--i'), 10); // Get the current index
+                $('.card1').each(function () {
+                    var currentIndex = parseInt($(this).css('--i'), 10);
+                    if (currentIndex > clickedIndex) {
+                        $(this).css('--i', currentIndex - 1);
+                    }
+                });
+                $(this).css('--i', $('.card1').length - 1); // Move clicked card to the front
             }
-        }); 
-        $(this).css('--i', $('.card1').length - 1); // Move clicked card to the front
-    });
-    $('.card1').hover(function () {
-    var $this = $(this); // Store the hovered card
-    $this.css('transform', 'translateX(calc(var(--i) * 20px)) translateY(calc(var(--i) * -10px)) rotateY(0deg) translateZ(100px)'); // Flip the card
-    setTimeout(function () {
-        $this.css('transform', 'translateX(calc(var(--i) * 15px)) translateY(calc(var(--i) * -5px)) rotateY(180deg)'); // Flip the card back after 5s
-    }, 5000); // Set timeout to 5s
-});
+        });
+    }
 
 
     var clickedcards2 = {}; // Object to keep track of clicked cards
@@ -105,4 +152,28 @@ jQuery(document).ready(function ($) {
         $(this).parent().remove(); // Remove the card from the DOM
         console.log('Card ' + card_id + ' has been removed.'); // Log that the card has been removed
     });
+    $(document).ready(function () {
+        console.log('Document is ready...');
+
+        // Attach the click event handler to all cards
+        $('.card1').on('click', handleCardClick);
+
+        initCarousel(); // Initialize the carousel
+    });
+
+    // Optional: Reinitialize carousel on window resize if needed
+    var resizeId;
+    $(window).resize(function () {
+        console.log('Window resized...');
+
+        clearTimeout(resizeId);
+        resizeId = setTimeout(function () {
+            console.log('Reinitializing carousel after resize...');
+            $('.card1').on('click', handleCardClick);
+            initCarousel();
+        }, 100); // Adjusted delay to avoid excessive calls
+    });
+
+    // Force a resize event trigger to ensure consistent initialization
+    $(window).trigger('resize');
 });
