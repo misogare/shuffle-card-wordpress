@@ -39,3 +39,27 @@ To enable the heart of the game, integrate the following HTML snippets:
 ```html
 <div class="picked-cards-container" style="display: flex; overflow-x: auto;">Picked cards will appear here.</div>
 <button id="shuffle-button" class="btn shuffle-btn">Shuffle Card</button>
+```
+
+For a destiny-driven selection of cards:
+```html
+<input type="number" id="num-cards1-input" value="7" class="input-field" min="1" max="35">
+<button id="pick-seven-cards-button" class="btn hypnotic-btn">Pick Cards</button>
+```
+#### Admin-Only Card Sets
+Admins can create and display unique sets of cards with:
+```html
+<div id="cards-display"></div>
+<button id="show-cards">Show</button>
+```
+## 🎨 Open Source and Customization
+
+Dive into customization with our open-source CSS and JavaScript code. Tailor the plugin to your heart’s desire, enhancing the user experience on your site. Integration with OpenAI offers a customizable gateway to send the mystical insights of selected cards directly to your users or customers
+
+## 📚 Database Compatibility
+
+Our plugin uses a sanitized database named cards, ensuring compatibility with any ASCII characters you input for name, icon, description, or long description.
+
+## 🌈 Make Your WordPress Site Spellbinding
+
+Elevate your WordPress site with the Card Mini Game plugin! Whether for entertainment, engagement, or a touch of magic, this plugin promises to transform your site into a captivating realm of card games. Let the adventure begin! 🚀✨
