@@ -64,45 +64,134 @@ jQuery(document).ready(function ($) {
         });
     }
 
+ var lastSelectedPileIndex = null; // Track the last selected pile
+ var clickedcards2 = {}; // Object to keep track of clicked cards
 
-    var clickedcards2 = {}; // Object to keep track of clicked cards
+ // Event handler for selecting a pile
+ $('body').on('click', '.select-pile', function () {
+     var setIndex = $(this).data('set');
 
-    // Use event delegation for dynamically added .card1 elements
-    $('#cards-display').on('click', '.card1', function () {
-        var card_id = $(this).data('id');
-        console.log('Card ID: ' + card_id); // Log the card ID
+     if (lastSelectedPileIndex !== setIndex) {
+         lastSelectedPileIndex = setIndex; // Update the last selected pile index
+         // Reset clickedcards2 for the newly selected pile
+         clickedcards2 = {}; // Resetting the tracking object
+         // Mark all piles as unclassified first
+         $('.card-set-container').removeClass('classified');
 
-        // If the card has not been clicked before
-        if (!clickedcards2[card_id]) {
-            clickedcards2[card_id] = true;
+         // Then, classify the other two piles
+         $('.card-set-container').each(function (index) {
+             if (index !== lastSelectedPileIndex) {
+                 $(this).addClass('classified');
+             }
+         });
 
-            $.ajax({
-                url: ajax_object.ajax_url, // Make sure ajax_object.ajax_url is defined
-                type: 'POST',
-                data: {
-                    action: 'picked_card',
-                    card_id: card_id
-                },
-                success: function (response) {
-                    console.log('Response: ' + response); // Log the response
+         var cardIDs = [];
+         // Collect all card IDs in this pile
+         $('#set-' + setIndex + ' .card1').each(function () {
+             cardIDs.push($(this).data('id'));
+         });
 
-                    // Check if the card is already in the picked cards container
-                    if ($('.picked-cards-container .card[data-id="' + card_id + '"]').length === 0) {
-                        // If not, append the new card
-                        $('.picked-cards-container').append(response);
+         // Clear previously displayed cards if selecting a new pile
+         $('.picked-cards-container').html('');
 
-                    } else {
-                        console.log('Card ' + card_id + ' is already picked.');
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.log('AJAX error: ' + textStatus + ' : ' + errorThrown); // Log any AJAX error
-                }
-            });
-        } else {
-            console.log('Card ' + card_id + ' has already been clicked.'); // Log that the card has already been clicked
-        }
-    });
+         // Send the card IDs to the server
+         $.ajax({
+             url: ajax_object.ajax_url,
+             type: 'POST',
+             data: {
+                 action: 'picked_card',
+                 card_ids: cardIDs // Send the array of IDs
+             },
+             success: function (response) {
+                 console.log('Pile selected successfully.');
+                 $('.picked-cards-container').append(response);
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+                 console.log('AJAX error: ' + textStatus + ' : ' + errorThrown);
+             }
+         });
+     } else {
+         console.log('This pile is already selected.');
+     }
+ });
+
+ $('#cards-display').on('click', '.classified .card1', function () {
+     var card_id = $(this).data('id');
+     console.log('Card ID: ' + card_id + ' from a classified pile.'); // Log the card ID
+
+     // If the card has not been clicked before or is from a classified pile
+     if (!clickedcards2[card_id]) {
+         clickedcards2[card_id] = true;
+
+         $.ajax({
+             url: ajax_object.ajax_url,
+             type: 'POST',
+             data: {
+                 action: 'picked_card',
+                 card_id: card_id,
+                 is_from_classified: true // Indicate it's from a classified pile
+             },
+             success: function (response) {
+                 console.log('Response: ' + response); // Log the response
+                 // Append to the second row/container for classified pile cards
+                 $('.picked-cards-container-second-row').append(response);
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+                 console.log('AJAX error: ' + textStatus + ' : ' + errorThrown); // Log any AJAX error
+             }
+         });
+     } else {
+         console.log('Card ' + card_id + ' has already been clicked.');
+     }
+ });
+
+ // Use event delegation for dynamically added .card1 elements
+ $('#cards-display').on('click', '.card1', function () {
+
+     var card_id = $(this).data('id');
+     var isFromClassifiedPile = $(this).closest('.card-set-container').hasClass('classified');
+     var container = isFromClassifiedPile ? '.picked-cards-container-second-row' : '.picked-cards-container';
+     console.log('Card ID: ' + card_id + '; From classified pile: ' + isFromClassifiedPile);
+
+     // Check if the card is from the main pile or a classified pile
+     // Note: This condition now allows adding cards from the main pile back to the container
+     // by removing the check that prevented re-adding previously clicked cards from the main pile.
+     clickedcards2[card_id] = true; // Mark card as clicked, regardless of its previous state
+
+
+     // If the card has not been clicked before
+     if (!clickedcards2[card_id]) {
+         clickedcards2[card_id] = true;
+
+         $.ajax({
+             url: ajax_object.ajax_url,
+             type: 'POST',
+             data: {
+                 action: 'picked_card',
+                 card_id: card_id,
+                 is_from_classified: isFromClassifiedPile // Indicate if it's from a classified pile
+             },
+             success: function (response) {
+                 console.log('Response: ' + response); // Log the response
+
+                 // Check if the card is already in the picked cards container
+                 if ($('.picked-cards-container .card[data-id="' + card_id + '"]').length === 0) {
+                     // If not, append the new card
+                     $('.picked-cards-container').append(response);
+
+                 } else {
+                     console.log('Card ' + card_id + ' is already picked.');
+                 }
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+                 console.log('AJAX error: ' + textStatus + ' : ' + errorThrown); // Log any AJAX error
+             }
+         });
+     } else {
+         console.log('Card ' + card_id + ' has already been clicked.'); // Log that the card has already been clicked
+     }
+ });
+
     var $dialog = $('<div></div>')
         .html('You must be admin to use this button  <br><br> <button onclick="closeDialog()">Close</button>')
         .dialog({

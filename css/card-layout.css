@@ -53,9 +53,9 @@
         transition: 0.5s;
     }
 
-    .card:hover .front {
-        display: flex;
-    }
+    .card:hover .back {
+     display: flex;
+ }
 
     /* Hover effect to lift the card */
     .card:hover {
@@ -81,29 +81,17 @@
     top: 300%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
-    width: 95px; /* Adjust to desired width */
+    width: 100px; /* Adjust to desired width */
     height: 30px; /* Adjust to desired height */
     /* Add any other styles you want for your button */
 }
 
 .prev-button1 {
-    position: absolute;
-    z-index: 2;
-    top: 600%; /* Center vertically */
-    left: 20%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
-    width: 95px; /* Adjust to desired width */
-    height: 30px; /* Adjust to desired height */
+	display:none;
 }
 
 .next-button1 {
-    position: absolute;
-    z-index: 2;
-    top: 600%; /* Center vertically */
-    left: 60%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
-    width: 95px; /* Adjust to desired width */
-    height: 30px; /* Adjust to desired height */
+   display:none;
 }
 .card {
     /* Other styles */

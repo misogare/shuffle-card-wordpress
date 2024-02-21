@@ -19,7 +19,6 @@
     transform-style: preserve-3d;
 }
 
-/* Adjust the z-index and any other styling for the dialog */
 
 
 
@@ -87,12 +86,12 @@
     }
 
         .card1:hover .front1 {
-            visibility: visible; /* Show the front when the card is hovered over */
-        }
+      visibility: hidden; /* Hide the back when the card is hovered over */
+  }
 
-        .card1:hover .back1 {
-            visibility: hidden; /* Hide the back when the card is hovered over */
-        }
+  .card1:hover .back1 {
+      visibility: visible; /* Hide the back when the card is hovered over */
+  }
 
     .card1 .front1, .card1 .back1 {
         position: absolute;
