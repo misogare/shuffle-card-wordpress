@@ -206,35 +206,36 @@ jQuery(document).ready(function ($) {
     window.closeDialog = function () {
         $dialog.dialog('close');
     }
-    if (ajax_object.is_user_logged_in !== 'yes' && ajax_object.is_admin !== 'yes') {
-        $('#show-cards').click(function (e) {
-            e.preventDefault(); // Prevent any default button action
-            openDialog(); // Open the dialog instead of redirecting
-        });
-    }
-    else {
-        $('#show-cards').click(function () {
-            $.ajax({
-                url: ajax_object.ajax_url, // ajaxurl is a variable automatically provided by WordPress
-                type: 'POST',
-                data: {
-                    action: 'display_cards_in_sets_ajax',
-                },
-                success: function (response) {
-                    $('#cards-display').html(response);
+    if (ajax_object.is_user_logged_in === 'yes' && ajax_object.is_admin === 'yes') {
+    $('#show-cards').click(function () {
+        $.ajax({
+            url: ajax_object.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'display_cards_in_sets_ajax',
+            },
+            success: function (response) {
+                $('#cards-display').html(response);
 
-                    // After cards are displayed, add click event for the shining effect
-                    $('.card-set').click(function () {
-                        // Remove the shining effect from all sets
-                        $('.card-set').removeClass('shining-effect');
+                // After cards are displayed, add click event for the shining effect
+                $('.card-set').click(function () {
+                    // Remove the shining effect from all sets
+                    $('.card-set').removeClass('shining-effect');
 
-                        // Apply the shining effect to the clicked set
-                        $(this).addClass('shining-effect');
-                    });
-                }
-            });
+                    // Apply the shining effect to the clicked set
+                    $(this).addClass('shining-effect');
+                });
+            }
         });
-    }
+    });
+} else {
+    $('#show-cards').click(function (e) {
+        e.preventDefault(); // Prevent any default button action
+        openDialog(); // Open the dialog instead of redirecting
+    });
+}
+
+
     $('.picked-cards-container').on('click', '.remove-card', function () {
         var card_id = $(this).parent().data('id'); // Get the card ID
         delete clickedcards2[card_id]; // Remove the card from clickedcards

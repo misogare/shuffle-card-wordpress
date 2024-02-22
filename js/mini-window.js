@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     var showCardsWindow = document.getElementById('show-cards-window');
     if (showCardsWindow) {
         showCardsWindow.addEventListener('click', function () {
+     if (ajax_object.is_user_logged_in === 'yes' && ajax_object.is_admin === 'yes') {
             var newWindow = window.open('', 'Picked Cards', 'width=600,height=400');
 
             // Fetch the contents of your containers
@@ -216,7 +217,14 @@ $(document).on('click', '.remove-card1', function () {
             newWindow.document.write(newWindowContent);
             newWindow.document.close();
 
+	}
+	else{
+	  showCardsWindow.style.display = 'none';
 
+            // Show a message
+                    alert("You are not allowed to view this content.");
+
+	}
         });
     }
 });
