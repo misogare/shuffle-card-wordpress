@@ -569,7 +569,7 @@ $openai_input = $openai_prompt_template ?: "These are 3 cards descriptions I'm s
                                 error_log('open api key : ' . $openai_api_key); // Log each card description
 
         // Call OpenAI API with the concatenated ldescriptions
-        //$openai_api_key = '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';
+        //$openai_api_key = '';
        $response = wp_remote_post('https://api.openai.com/v1/chat/completions', array(
     'headers' => array(
         'Content-Type' => 'application/json',
