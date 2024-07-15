@@ -122,6 +122,8 @@ class Card {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-card-public.php';
 
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-card-main.php';
+
 		$this->loader = new Card_Loader();
 
 	}
@@ -156,6 +158,12 @@ class Card {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'card_mini_game_register_settings' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'error_log_menu' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'card_mini_game_add_admin_menu' );
+		
+
+
 
 	}
 
@@ -169,11 +177,29 @@ class Card {
 	private function define_public_hooks() {
 
 		$plugin_public = new Card_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_main = new card_main ($this->get_plugin_name(), $this->get_version());
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_shortcode( 'display_cards', $plugin_public, 'display_cards' );
+		$this->loader->add_shortcode( 'display_cards_in_sets', $plugin_public, 'display_cards_in_sets' );
+
+		$this->loader->add_action( 'wp_ajax_picked_card', $plugin_public, 'picked_card' );
+		$this->loader->add_action( 'wp_ajax_picked_card', $plugin_public, 'picked_card' );
+		$this->loader->add_action( 'wp_ajax_card_shuffle', $plugin_public, 'card_shuffle_callback' );
+		$this->loader->add_action( 'wp_ajax_nopriv_card_shuffle', $plugin_public, 'card_shuffle_callback' );
+		$this->loader->add_action( 'wp_ajax_display_cards_in_sets_ajax', $plugin_public, 'display_cards_in_sets_ajax' );
+		$this->loader->add_action( 'wp_ajax_nopriv_display_cards_in_sets_ajax', $plugin_public, 'display_cards_in_sets_ajax' );
+		$this->loader->add_action( 'wp_ajax_load_content_based_on_selection', $plugin_public, 'load_content_based_on_selection' );
+		$this->loader->add_action( 'wp_ajax_nopriv_load_content_based_on_selection', $plugin_public, 'load_content_based_on_selection' );
+		$this->loader->add_action( 'wp_ajax_send_cards_to_email', $plugin_public, 'send_cards_to_email' );
+		$this->loader->add_action( 'wp_ajax_nopriv_send_cards_to_email', $plugin_public, 'send_cards_to_email' );
+		$this->loader->add_shortcode( 'admin_button', $plugin_public, 'admin_button_shortcode' );
+
 
 	}
+
+	
 
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.

@@ -53,7 +53,85 @@ class Card_Admin {
 		$this->version = $version;
 
 	}
+	   public function card_mini_game_add_admin_menu() {
+        add_menu_page(
+            'Card Mini Game Settings',
+            'Card Mini Game',
+            'manage_options',
+            'card-mini-game-settings',
+            array($this, 'card_mini_game_settings_page')
+        );
+    }
 
+    public function card_mini_game_settings_page() {
+        ?>
+        <div class="wrap">
+            <h2>Card Mini Game Settings</h2>
+            <form method="post" action="options.php">
+                <?php settings_fields('card_mini_game_settings'); ?>
+                <?php do_settings_sections('card_mini_game_settings'); ?>
+                <table class="form-table">
+                    <tr valign="top">
+                        <th scope="row">OpenAI API Key</th>
+                        <td><input type="text" name="openai_api_key" value="<?php echo esc_attr(get_option('openai_api_key')); ?>" /></td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row">OpenAI Prompt Template (Love)</th>
+                        <td>
+                            <textarea name="openai_prompt_template_love" rows="5" cols="50"><?php echo esc_textarea(get_option('openai_prompt_template_love')); ?></textarea>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row">OpenAI Prompt Template (Money)</th>
+                        <td>
+                            <textarea name="openai_prompt_template_money" rows="5" cols="50"><?php echo esc_textarea(get_option('openai_prompt_template_money')); ?></textarea>
+                        </td>
+                    </tr>
+                    <tr valign="top">
+                        <th scope="row">OpenAI Prompt Template (General)</th>
+                        <td>
+                            <textarea name="openai_prompt_template_general" rows="5" cols="50"><?php echo esc_textarea(get_option('openai_prompt_template_general')); ?></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <?php submit_button(); ?>
+            </form>
+        </div>
+        <?php
+    }
+
+    public function card_mini_game_register_settings() {
+        register_setting('card_mini_game_settings', 'openai_api_key', array($this, 'card_mini_game_sanitize_api_key'));
+        register_setting('card_mini_game_settings', 'openai_prompt_template_love', array($this, 'card_mini_game_sanitize_prompt_template'));
+        register_setting('card_mini_game_settings', 'openai_prompt_template_money', array($this, 'card_mini_game_sanitize_prompt_template'));
+        register_setting('card_mini_game_settings', 'openai_prompt_template_general', array($this, 'card_mini_game_sanitize_prompt_template'));
+    }
+
+    public function card_mini_game_sanitize_prompt_template($input) {
+        return sanitize_textarea_field($input);
+    }
+
+    public function card_mini_game_sanitize_api_key($input) {
+        return sanitize_text_field($input);
+    }
+
+    public function error_log_menu() {
+        add_options_page(
+            'Error Log',
+            'Error Log',
+            'manage_options',
+            'error-log',
+            array($this, 'error_log_page')
+        );
+    }
+
+    public function error_log_page() {
+        $log_path = ini_get('error_log');
+        echo '<div class="wrap">';
+        echo '<h1>Error Log</h1>';
+        echo '<p>The error logs are stored at: ' . $log_path . '</p>';
+        echo '</div>';
+    }
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
