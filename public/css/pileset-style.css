@@ -1,0 +1,166 @@
+.card-set {
+    perspective: 1500px;
+    width: 300x; /* Adjust based on your total stack width */
+    height: 150px; /* Adjust based on your card size */
+    margin: 20px auto; /* Center the set */
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg); /* Tilt the stack for better horizontal visibility */
+}
+
+.card1 {
+    position: absolute;
+    width: 100px; /* Card width */
+    height: 130px; /* Card height */
+    transition: transform 5s ease; /* Increase transition duration to 5s */
+
+    transform: translateX(calc(var(--i) * 15px)) translateY(calc(var(--i) * -5px)) rotateY(180deg); /* Initially show the back */
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+/* Adjust the z-index and any other styling for the dialog */
+
+
+
+/* Shining effect and keyframes remain the same */
+.shining-effect {
+	animation: shine 1.5s infinite alternate;
+	border: 2px solid #fff; /* Optional: adds a bright border */
+}
+
+
+
+
+@keyframes shine {
+	from {
+		box-shadow: 0 0 5px #aaa, 0 0 10px #ccc, 0 0 15px #eee;
+	}
+
+	to {
+		box-shadow: 0 0 10px #ddd, 0 0 20px #bbb, 0 0 30px #999;
+	}
+}
+@media (min-width: 1024px) {
+    .card-navigation-buttons {
+        display: none;
+    }
+    .card1:hover {
+        transform: translateX(calc(var(--i) * 15px)) translateY(calc(var(--i) * -5px)) rotateY(0deg) rotateZ(1deg) perspective(100px) /* Rotate to show the front on hover */
+        translateZ(20px); /* Bring card forward on hover */
+        z-index: 1; /* Ensure hovered card is above others */
+    }
+
+        .card1:hover .front1 {
+            visibility: visible; /* Show the front when the card is hovered over */
+        }
+
+        .card1:hover .back1 {
+            visibility: hidden; /* Hide the back when the card is hovered over */
+        }
+    .card1 .front1, .card1 .back1 {
+        position: absolute;
+        width: 60%;
+        height: 100%;
+        transform-style: preserve-3d;
+    }
+
+    .card1 .front1 {
+        transform: rotateY(0deg); /* Align front correctly; it starts hidden due to the card1 rotation */
+        backface-visibility: hidden; /* Hide the front initially */
+    }
+
+    .card1 .back1 {
+        backface-visibility: visible; /* Show the back initially */
+    }
+
+}
+@media (min-width: 900px) {
+    .card-navigation-buttons {
+        display: none;
+    }
+
+    .card1:hover {
+        transform: translateX(calc(var(--i) * 15px)) translateY(calc(var(--i) * -5px)) rotateY(0deg) rotateZ(1deg) perspective(100px) /* Rotate to show the front on hover */
+        translateZ(20px); /* Bring card forward on hover */
+        z-index: 1; /* Ensure hovered card is above others */
+    }
+
+        .card1:hover .front1 {
+            visibility: hidden; /* Hide the back when the card is hovered over */
+        }
+
+        .card1:hover .back1 {
+            visibility: visible; /* Hide the back when the card is hovered over */
+        }
+
+    .card1 .front1, .card1 .back1 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+    }
+
+    .card1 .front1 {
+        transform: rotateY(0deg); /* Align front correctly; it starts hidden due to the card1 rotation */
+        backface-visibility: hidden; /* Hide the front initially */
+    }
+
+    .card1 .back1 {
+        backface-visibility: visible; /* Show the back initially */
+    }
+}
+@media (max-width: 600px) {
+    .card-set {
+        width: 100%; /* Full width on small screens */
+        padding: 0 10%; /* Add horizontal padding */
+        perspective: none;
+        transform: none;
+    }
+
+    .card1 {
+        width: 20%; /* Reduce card width on small screens */
+        left: 0; /* Align to the left */
+        perspective: none;
+        transform: none;
+    }
+        .card1 .front1 {
+            backface-visibility: hidden; /* Show the back initially */
+            display:none;
+        }
+        .card1:hover .front1 {
+            display: block; /* Show the front of the card on hover */
+        }
+       
+        .card1 .back1 {
+            backface-visibility: visible; /* Show the back initially */
+        }
+    .small-screen .card1 {
+        perspective: none;
+        transform: none;
+        /* Additional styles for small screens */
+    }
+    .card-navigation-buttons {
+        text-align: center;
+        margin-top: 20px; /* Adjust spacing as needed */
+    }
+
+
+    .prev-button, .next-button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .prev-button:hover, .next-button:hover {
+            background-color: #0056b3;
+        }
+
+
+}
+

@@ -30,6 +30,10 @@ class Card_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
+		 global $wpdb;
+    $table_name = $wpdb->prefix . 'cards';
+
+    $wpdb->query("DROP TABLE IF EXISTS $table_name");
 
 	}
 

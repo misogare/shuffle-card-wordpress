@@ -41,6 +41,8 @@ class Card_Loader {
 	 */
 	protected $filters;
 
+
+	protected $shortcodes;
 	/**
 	 * Initialize the collections used to maintain the actions and filters.
 	 *
@@ -50,6 +52,8 @@ class Card_Loader {
 
 		$this->actions = array();
 		$this->filters = array();
+		$this->shortcodes = array(); // Initialize the property
+
 
 	}
 
@@ -81,6 +85,14 @@ class Card_Loader {
 		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args );
 	}
 
+
+	public function add_shortcode( $tag, $component, $callback ) {
+        $this->shortcodes[] = array(
+            'tag'       => $tag,
+            'component' => $component,
+            'callback'  => $callback,
+        );
+    }
 	/**
 	 * A utility function that is used to register the actions and hooks into a single
 	 * collection.
@@ -123,6 +135,9 @@ class Card_Loader {
 		foreach ( $this->actions as $hook ) {
 			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
 		}
+		 foreach ( $this->shortcodes as $shortcode ) {
+            add_shortcode( $shortcode['tag'], array( $shortcode['component'], $shortcode['callback'] ) );
+        }
 
 	}
 

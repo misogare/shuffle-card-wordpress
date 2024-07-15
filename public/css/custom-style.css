@@ -1,0 +1,37 @@
+.picked-cards-container, .picked-cards-container-second-row {
+    display: flex;
+    overflow-x: auto;
+    /* Ensure a minimum width if necessary, based on your content */
+}
+
+.picked-card {
+    position:relative;
+    flex: 0 0 auto; /* Prevent shrinking and allow cards to maintain original size */
+    width: auto; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    /* Ensure images within cards are not scaled down */
+    img
+
+{
+    width: 200px; /* Adjust if necessary to maintain original size */
+    height: 150px;
+    max-width: none;
+}
+
+}
+
+.remove-card {
+    position: absolute; /* Add this line */
+    top: 0; /* Add this line */
+    right: 0; /* Add this line */
+    background: none;
+    border: none;
+    padding: 0;
+    /* Add the following lines to create an "X" icon */
+    content: "X";
+    color: #000;
+    font-weight: bold;
+}
+.picked-card .back {
+    display: none;
+}
